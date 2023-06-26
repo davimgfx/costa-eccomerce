@@ -1,5 +1,5 @@
 <div align='center'>
- <img style="width:16%" src='src/assets/logov2.png'/>
+ <img style="width:16%" src='https://github.com/davimgfx/costa-eccomerce/assets/118557337/96e9bdde-5655-4187-86c3-61844080851c'/>
 </div>
 
 # Costa Eccomerce 🛒
