@@ -1,15 +1,13 @@
 import "./sass/main.scss";
-import { CategoryItem } from "./component"
-import { categoriesData } from "./constants"
+import { Navbar } from "./component";
+
+import { Outlet } from "react-router-dom";
+
 const App = () => {
- 
   return (
     <>
-      <div className="categories-container">
-        {categoriesData.map((category) => (
-          <CategoryItem category={category} key={category.id} />
-        ))}
-      </div>
+      <Navbar />
+      <Outlet />
     </>
   );
 };
