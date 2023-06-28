@@ -1,11 +1,17 @@
-import { signInWithGooglePopup } from "../utils/firebase/firebase.js"
+import { signInWithGooglePopup } from "../utils/firebase/firebase.js";
+import { useState } from "react";
 
 const SignIn = () => {
-  const logGoogleUser = async () => {
-    const response = await signInWithGooglePopup
-    console.log(response)
-  }
+  const [errorMessage, setErrorMessage] = useState("");
 
+  const logGoogleUser = async () => {
+    try {
+      const response = await signInWithGooglePopup();
+      // Aqui você pode tratar a resposta do login bem-sucedido
+    } catch (error) {
+      console.log(error)
+    }
+  };
 
   return (
     <div>
