@@ -1,9 +1,9 @@
-import React from 'react';
+import React from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ReactDOM from "react-dom/client";
-import './sass/main.scss';
-import App from './App';
-import {ErrorPage, Home} from "./Pages"
+import "./sass/main.scss";
+import App from "./App";
+import { ErrorPage, Home, SignIn } from "./Pages";
 
 const router = createBrowserRouter([
   {
@@ -13,10 +13,17 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/",
-        element: <Home/>
+        element: <Home />,
       },
-    
-    ]
+      {
+        path: "shop",
+        element: <Home />,
+      },
+      {
+        path: "signIn",
+        element: <SignIn />,
+      },
+    ],
   },
 ]);
 
