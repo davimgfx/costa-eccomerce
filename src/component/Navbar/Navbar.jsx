@@ -19,20 +19,20 @@ const Navbar = () => {
           <img src={logo} alt="Logo" className="logo" />
         </Link>
         <ul className="nav-items-pages">
+          <Link to="shop">
+            <li>Shop</li>
+          </Link>
           {orderedCategoriesData.map((item) => (
             <li key={item.id}>{item.title}</li>
           ))}
         </ul>
         <ul className="nav-items-account">
-          <Link to="shop">
-            <li>SHOP</li>
-          </Link>
-
+           
           <Link to="signIn">
-            <li>SIG IN</li>
+            <i className="fa-solid fa-user"></i>
           </Link>
           <li>
-            <i className="fa-solid fa-cart-shopping icon-cart"></i>
+            <i className="fa-solid fa-cart-shopping"></i>
           </li>
         </ul>
       </nav>

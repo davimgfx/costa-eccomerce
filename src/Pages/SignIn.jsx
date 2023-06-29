@@ -2,9 +2,7 @@ import { SignInLayout } from "../component";
 
 const SignIn = () => {
   return (
-    
-      <SignInLayout />
-    
+      <SignInLayout />  
   );
 };
 
