@@ -1,15 +1,13 @@
-import { signInWithGooglePopup } from "../utils/firebase/firebase.js";
-import { useState } from "react";
+import { signInWithGooglePopup, createUserDocumentFromAuth } from "../utils/firebase/firebase.js";
 
 const SignIn = () => {
-  const [errorMessage, setErrorMessage] = useState("");
-
   const logGoogleUser = async () => {
     try {
-      const response = await signInWithGooglePopup();
-      // Aqui você pode tratar a resposta do login bem-sucedido
+      const {user} = await signInWithGooglePopup();
+      const userDocRef = await createUserDocumentFromAuth(user)
+ 
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 
