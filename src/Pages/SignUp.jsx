@@ -3,8 +3,9 @@ import { SignUpLayout } from "../component";
 const SignUp = () => {
   return (
     <>
-      <div>SingUp</div>
+      <div className="sign-container">
       <SignUpLayout />
+      </div>
     </>
   );
 };

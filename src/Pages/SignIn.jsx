@@ -1,7 +1,11 @@
 import { SignInLayout } from "../component";
 
 const SignIn = () => {
-  return <SignInLayout />;
+  return (
+    
+      <SignInLayout />
+    
+  );
 };
 
 export default SignIn;

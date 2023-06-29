@@ -1,14 +1,27 @@
+.btns-signIn{
+    display: flex;
+    gap: 1rem;
+}
+
 .btn{
     cursor: pointer;
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 1rem;
-    padding: 0.5rem 5rem;
-    border: solid 1px black;
-    border-radius: 20rem;
+    padding: 0.5rem 1rem;
+    border: solid 1px rgb(134, 134, 134);
+    border-radius: 1rem;
+
+    &-submit{
+        background: $color-primary;
+        color: $color-white; 
+    }
 }
 
+.signUp-highlight{
+    color: $color-primary;
+}
 
 .fa-github{
     font-size: 2rem;
