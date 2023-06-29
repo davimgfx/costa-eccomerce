@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import google_icon from "../../assets/google_icon.png";
 import logo from "../../assets/logov3.png";
-import singUpImg from "../../assets/singUpImg2.png";
+import singUpImg from "../../assets/singUpImg.png";
 import {
   createUserDocumentFromAuth,
   signInWithGithub,
