@@ -1,5 +1,5 @@
 <div align='center'>
- <img style="width:16%" src='https://github.com/davimgfx/costa-eccomerce/assets/118557337/96e9bdde-5655-4187-86c3-61844080851c'/>
+ <img style="width:16%" src='src/assets/logov3.png'/>
 </div>
 
 # Costa Eccomerce 🛒
@@ -15,3 +15,6 @@ Welcome to Costa Ecommerce, a minimalist online store. Our website showcases a m
 - Sass  <br>
 
 ## Screenshots of the Project
+
+### Login Page
+![Login_Page](https://github.com/davimgfx/costa-eccomerce/assets/118557337/4d4d2ce9-be5e-4638-8aa4-c239424b2aa5)
