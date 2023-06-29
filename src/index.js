@@ -3,7 +3,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import ReactDOM from "react-dom/client";
 import "./sass/main.scss";
 import App from "./App";
-import { ErrorPage, Home, SignIn } from "./Pages";
+import { ErrorPage, Home, SignIn, SignUp } from "./Pages";
 
 const router = createBrowserRouter([
   {
@@ -22,6 +22,10 @@ const router = createBrowserRouter([
       {
         path: "signIn",
         element: <SignIn />,
+      },
+      {
+        path: "signUp",
+        element: <SignUp />,
       },
     ],
   },

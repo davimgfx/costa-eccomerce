@@ -1,8 +1,14 @@
 import "./sass/main.scss";
 import { Navbar } from "./component";
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 
 const App = () => {
+  const location = useLocation();
+
+  if (location.pathname === "/signIn" || location.pathname === "/signUp") {
+    return <Outlet />;
+  }
+
   return (
     <>
       <Navbar />
