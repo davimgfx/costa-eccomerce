@@ -6,7 +6,14 @@ const App = () => {
   const location = useLocation();
 
   if (location.pathname === "/signIn" || location.pathname === "/signUp") {
-    return <Outlet />;
+    return (
+      <>
+        <div className="hidden">
+          <Navbar />
+        </div>
+        <Outlet />;
+      </>
+    );
   }
 
   return (

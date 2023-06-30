@@ -1,9 +1,13 @@
-import React from "react";
+import { useContext } from "react";
 import { Link } from "react-router-dom";
 import logo from "../../assets/logov3.png";
 import { categoriesData } from "../../constants";
+import { UserContext } from "../../context/UserProvider";
 
 const Navbar = () => {
+  const { currentUser } = useContext(UserContext);
+  console.log(currentUser);
+
   const orderedCategoriesData = [
     categoriesData.find((item) => item.title === "Womens"),
     categoriesData.find((item) => item.title === "Mens"),
@@ -27,7 +31,6 @@ const Navbar = () => {
           ))}
         </ul>
         <ul className="nav-items-account">
-           
           <Link to="signIn">
             <i className="fa-solid fa-user"></i>
           </Link>

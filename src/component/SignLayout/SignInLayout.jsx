@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import google_icon from "../../assets/google_icon.png";
 import logo from "../../assets/logov3.png";
 import signInImg from "../../assets/signInImg.png";
+import { UserContext } from "../../context/UserProvider";
 import {
   createUserDocumentFromAuth,
+  signInAuthUserWithEmailAndPassword,
   signInWithGithub,
   signInWithGooglePopup,
-  signInAuthUserWithEmailAndPassword
 } from "../../utils/firebase/firebase";
 import FormInput from "./FormInput.jsx";
 
@@ -21,21 +22,58 @@ const SignInLayout = () => {
   const loginWithGoogleGithub = async (provider) => {
     const { user } = await provider();
     await createUserDocumentFromAuth(user);
+    console.log(user);
   };
 
-
-   // Login with Email and Password account
+  // Login with Email and Password account
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
+
+  // Context
+  const { currentUser, setCurrentUser } = useContext(UserContext);
+
+  const resetPassword = () => {
+    setFormFields({ password: "" });
+  };
+
+  const resetFormFild = () => {
+    setFormFields(defaultFormFields);
+  };
+
+  //Login with Email and Password account
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if (password === "" || email === "") {
+      alert("Please enter your email address and/or password");
+      return;
+    }
+
     try {
-      const response = await signInAuthUserWithEmailAndPassword(email, password);
-      console.log(response)
+      const { user } = await signInAuthUserWithEmailAndPassword(
+        email,
+        password
+      );
+      setCurrentUser(user);
+      console.log(currentUser)
+      console.log(user)
+      alert("Sucess Login in");
+      
+      //resetFormFild();
     } catch (error) {
-      console.log(error)
-      alert("Email or password incorrect")
+      switch (error.code) {
+        case "auth/wrong-password":
+          alert("Password incorrect");
+          break;
+        case "auth/user-not-found":
+          alert("No user associated with this account");
+          break;
+        default:
+          console.log(error);
+          break;
+      }
+
+     //resetPassword();
     }
   };
 
@@ -55,13 +93,15 @@ const SignInLayout = () => {
         <div className="btns-signIn">
           <button
             onClick={() => loginWithGoogleGithub(signInWithGooglePopup)}
-            className="btn">
+            className="btn"
+            type="button">
             <img src={google_icon} alt="google_icon" className="google_image" />
             Login with Google
           </button>
           <button
             onClick={() => loginWithGoogleGithub(signInWithGithub)}
-            className="btn">
+            className="btn"
+            type="button">
             <i className="fa-brands fa-github"></i>
             Login with GitHub
           </button>
@@ -89,7 +129,10 @@ const SignInLayout = () => {
             value={password}
           />
 
-          <button type="submit" className="btn btn-submit" onClick={handleSubmit}>
+          <button
+            type="submit"
+            className="btn btn-submit"
+            onClick={handleSubmit}>
             Login
           </button>
           <div className="another-options">
