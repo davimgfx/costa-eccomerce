@@ -1,11 +1,12 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import logo from "../../assets/logov3.png";
 import signUpImg from "../../assets/signUpImg.png";
 import {
   createAuthUserWithEmailAndPassword,
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.js";
-import {Link} from "react-router-dom"
+import FormInput from "./FormInput.jsx";
 
 const defaultFormFields = {
   displayName: "",
@@ -48,10 +49,13 @@ const SignUpLayout = () => {
       }
     }
   };
+
   const handleChange = (event) => {
+   
     const { name, value } = event.target;
 
     setFormFields({ ...formFields, [name]: value });
+    console.log(formFields);
   };
   return (
     <div className="sign-container">
@@ -64,49 +68,47 @@ const SignUpLayout = () => {
         </div>
 
         <form onSubmit={handleSubmit} className="form-login">
-          <label>Name</label>
-          <input
+          <FormInput
+            label="Name"
             type="text"
             required
             onChange={handleChange}
             name="displayName"
             value={displayName}
-            className="input"
           />
-          <label>Email</label>
-          <input
+          <FormInput
+            label="Email"
             type="email"
             required
             onChange={handleChange}
             name="email"
             value={email}
-            className="input"
           />
-          <label>Password</label>
-          <input
+          <FormInput
+            label="Password"
             type="password"
             required
             onChange={handleChange}
             name="password"
             value={password}
-            className="input"
           />
-          <label>Confirm Password</label>
-          <input
+          <FormInput
+            label="Confirm Password"
             type="password"
             required
             onChange={handleChange}
             name="confirmPassword"
             value={confirmPassword}
-            className="input"
           />
           <button type="submit" className="btn btn-submit">
             Create Account
           </button>
           <div className="another-options">
             <p>
-            Already have account? {""}
-              <Link to="../signIn"><span className="signUp-highlight">Login </span></Link>
+              Already have account? {""}
+              <Link to="../signIn">
+                <span className="signUp-highlight">Login </span>
+              </Link>
             </p>
             <Link to="../">
               <p className="signUp-highlight">&larr; Go Back to the Home </p>
@@ -118,7 +120,7 @@ const SignUpLayout = () => {
         </form>
       </div>
       <div className="image-login-container">
-        <img src={signUpImg} className="image-login" />
+        <img src={signUpImg} className="image-login"  alt="model_image"/>
       </div>
     </div>
   );

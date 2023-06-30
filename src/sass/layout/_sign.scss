@@ -5,6 +5,7 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
+
   .image-login-container,
   .main-container {
     margin: 1rem;
@@ -68,6 +69,7 @@
         padding: 0.6rem;
         border-radius: 1rem;
         margin: 0.2rem 0 1.4rem 0;
+        text-indent: 0.2rem;
         &:focus {
           border: 1px solid $color-primary;
         }
