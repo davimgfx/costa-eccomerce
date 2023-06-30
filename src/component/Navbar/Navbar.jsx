@@ -1,12 +1,21 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
+import defaultProfile from "../../assets/defaultProfile.png";
 import logo from "../../assets/logov3.png";
 import { categoriesData } from "../../constants";
 import { UserContext } from "../../context/UserProvider";
-
+import { signOutUser } from "../../utils/firebase/firebase";
 const Navbar = () => {
-  const { currentUser } = useContext(UserContext);
+  const { currentUser, setCurrentUser } = useContext(UserContext);
   console.log(currentUser);
+  console.log(currentUser?.photoURL);
+
+  const signOutHandler = async () => {
+    await signOutUser();
+    setCurrentUser(null);
+  };
+  // if photoURL is not null, undefined or "undefined"
+  const isPhotoURLValid = (url) => url && url !== "undefined";
 
   const orderedCategoriesData = [
     categoriesData.find((item) => item.title === "Womens"),
@@ -31,12 +40,27 @@ const Navbar = () => {
           ))}
         </ul>
         <ul className="nav-items-account">
-          <Link to="signIn">
-            <i className="fa-solid fa-user"></i>
-          </Link>
           <li>
             <i className="fa-solid fa-cart-shopping"></i>
           </li>
+          {currentUser ? (
+            <Link to="signIn">
+              <img
+                src={
+                  isPhotoURLValid(currentUser.photoURL)
+                    ? currentUser.photoURL
+                    : defaultProfile
+                }
+                alt="Profile"
+                className="profile_image"
+                onClick={signOutHandler}
+              />
+            </Link>
+          ) : (
+            <Link to="signIn">
+              <i className="fa-solid fa-user"></i>
+            </Link>
+          )}
         </ul>
       </nav>
     </header>

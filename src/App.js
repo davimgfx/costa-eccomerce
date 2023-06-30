@@ -3,18 +3,18 @@ import { Navbar } from "./component";
 import { Outlet, useLocation } from "react-router-dom";
 
 const App = () => {
-  const location = useLocation();
+  // const location = useLocation();
 
-  if (location.pathname === "/signIn" || location.pathname === "/signUp") {
-    return (
-      <>
-        <div className="hidden">
-          <Navbar />
-        </div>
-        <Outlet />;
-      </>
-    );
-  }
+  // if (location.pathname === "/signIn" || location.pathname === "/signUp") {
+  //   return (
+  //     <>
+  //       <div className="hidden">
+  //         <Navbar />
+  //       </div>
+  //       <Outlet />;
+  //     </>
+  //   );
+  // }
 
   return (
     <>

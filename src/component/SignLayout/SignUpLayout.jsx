@@ -1,5 +1,5 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useContext } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logov3.png";
 import signUpImg from "../../assets/signUpImg.png";
 import {
@@ -7,6 +7,7 @@ import {
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.js";
 import FormInput from "./FormInput.jsx";
+import { UserContext } from "../../context/UserProvider";
 
 const defaultFormFields = {
   displayName: "",
@@ -17,12 +18,17 @@ const defaultFormFields = {
 };
 
 const SignUpLayout = () => {
+  let navigate = useNavigate();
+
   const [formFields, setFormFields] = useState(defaultFormFields);
 
   const { displayName, email, password, confirmPassword, providerId } =
     formFields;
 
-  const resetFormFild = () => {
+    const { setCurrentUser } = useContext(UserContext)
+
+
+  const resetFormField = () => {
     setFormFields(defaultFormFields);
   };
 
@@ -38,9 +44,15 @@ const SignUpLayout = () => {
         email,
         password
       );
+
+      setCurrentUser(user) 
+      
       await createUserDocumentFromAuth(user, { displayName, providerId });
       alert("Account create");
-      resetFormFild();
+      navigate("/");
+      resetFormField();
+
+
     } catch (error) {
       if (error.code === "auth/email-already-in-use") {
         alert("Cannot create user, email already in use");

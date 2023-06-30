@@ -11,6 +11,7 @@ import {
   signInWithGooglePopup,
 } from "../../utils/firebase/firebase";
 import FormInput from "./FormInput.jsx";
+import { useNavigate } from 'react-router-dom';
 
 const defaultFormFields = {
   email: "",
@@ -18,10 +19,15 @@ const defaultFormFields = {
 };
 
 const SignInLayout = () => {
+  //Navigation
+  let navigate = useNavigate();
+
   //Create and Login with Google and Github account
   const loginWithGoogleGithub = async (provider) => {
     const { user } = await provider();
     await createUserDocumentFromAuth(user);
+    setCurrentUser(user);
+    navigate("/");
     console.log(user);
   };
 
@@ -37,10 +43,12 @@ const SignInLayout = () => {
     setFormFields({ password: "" });
   };
 
-  const resetFormFild = () => {
+  const resetFormFields = () => {
     setFormFields(defaultFormFields);
   };
 
+  //Login
+  const [loggedIn, setLoggedIn] = useState(false);
   //Login with Email and Password account
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -58,8 +66,11 @@ const SignInLayout = () => {
       console.log(currentUser)
       console.log(user)
       alert("Sucess Login in");
+      setLoggedIn(true);
+
+      navigate("/");
       
-      //resetFormFild();
+      resetFormFields();
     } catch (error) {
       switch (error.code) {
         case "auth/wrong-password":
@@ -73,7 +84,7 @@ const SignInLayout = () => {
           break;
       }
 
-     //resetPassword();
+     resetPassword();
     }
   };
 
