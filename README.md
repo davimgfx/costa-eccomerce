@@ -13,8 +13,12 @@ Welcome to Costa Ecommerce, a minimalist online store. Our website showcases a m
 
 - React JS <br>
 - Sass  <br>
+- Firebase <br>
 
 ## Screenshots of the Project
 
 ### Login Page
 ![Login_Page](https://github.com/davimgfx/costa-eccomerce/assets/118557337/4d4d2ce9-be5e-4638-8aa4-c239424b2aa5)
+
+### SignUp Page
+![Sign_Up](https://github.com/davimgfx/costa-eccomerce/assets/118557337/6bd0c247-9dfe-496c-b410-56c289e97ea0)
