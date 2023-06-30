@@ -2,7 +2,7 @@ import React from "react";
 import {Link} from "react-router-dom";
 import google_icon from "../../assets/google_icon.png";
 import logo from "../../assets/logov3.png";
-import singUpImg from "../../assets/singUpImg.png";
+import signInImg from "../../assets/signInImg.png";
 import {
   createUserDocumentFromAuth,
   signInWithGithub,
@@ -22,8 +22,8 @@ const SingInLayout = () => {
 
   return (
     <div className="sign-container">
-      <div className="login-container">
-        <img src={logo} alt="logo" className="logo-login" />
+      <div className="main-container">
+        <img src={logo} alt="logo" className="sign-login" />
         <h1>Login Page</h1>
         <h2>Enter your credentials to acess your account</h2>
         <div className="btns-signIn">
@@ -39,7 +39,7 @@ const SingInLayout = () => {
           </button>
         </div>
         <div className="bars">
-          <div className="div-bars" />
+          <div className="div-bars-singIn" />
           <h2 className="h2-bars">or</h2>
         </div>
 
@@ -63,13 +63,14 @@ const SingInLayout = () => {
             <p className="signUp-highlight">&larr; Go Back to the Home </p>
             </Link>
           </div>
+          <p><span className="signUp-highlight">Test Account </span>- test@gmail.com <span className="signUp-highlight">/</span> testpassword</p>
           <p className="copyright">
             Copyright © 2023 | All rights are reserved
           </p>
         </form>
       </div>
       <div className="image-login-container">
-        <img src={singUpImg} className="image-login" />
+        <img src={signInImg} className="image-login" />
       </div>
     </div>
   );
