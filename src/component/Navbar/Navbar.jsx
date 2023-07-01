@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import defaultProfile from "../../assets/defaultProfile.jpg";
 import logo from "../../assets/logov3.png";
@@ -8,8 +8,7 @@ import { signOutUser } from "../../utils/firebase/firebase";
 const Navbar = () => {
   //current User
   const { currentUser } = useContext(UserContext);
-
-
+  const [modalUser, setModalUser] = useState(false);
   // if photoURL is not null, undefined or "undefined"
   const isPhotoURLValid = (url) => url && url !== "undefined";
 
@@ -41,16 +40,37 @@ const Navbar = () => {
           </li>
           {currentUser ? (
             <Link to="signIn">
-              <img
-                src={
-                  isPhotoURLValid(currentUser.photoURL)
-                    ? currentUser.photoURL
-                    : defaultProfile
-                }
-                alt="Profile"
-                className="profile_image"
-                onClick={signOutUser}
-              />
+            
+              <div className="user_image">
+                <img
+                  src={
+                    isPhotoURLValid(currentUser.photoURL)
+                      ? currentUser.photoURL
+                      : defaultProfile
+                  }
+                  alt="Profile"
+                  className="profile_image"
+                  onClick={() => {
+                    setModalUser(!modalUser)
+                  }}
+                />
+                <div
+                  className={modalUser ? "modal_image" : "hidden"}
+                 
+                >
+                  <p className="modal_image_displayName">{currentUser.displayName}</p>
+                  <p className="modal_image_email">{currentUser.email}</p>
+                  <div className="modal_image_account">
+                  <i class="fa-solid fa-user"></i>
+                  <p>Account</p>
+                  </div>
+                  <div className="modal_image_signOut">
+                  <i class="fa-solid fa-right-from-bracket"></i>
+                  <p onClick={signOutUser}>Sign Out</p>
+                  </div>
+                </div>
+              </div>
+              
             </Link>
           ) : (
             <Link to="signIn">

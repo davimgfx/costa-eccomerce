@@ -9,7 +9,7 @@ header {
   align-items: center;
   justify-content: space-between;
   padding: 0 2rem;
-  
+
   .logo {
     width: 8rem;
     margin: 0.5rem 0;
@@ -25,17 +25,45 @@ header {
       align-items: center;
       list-style-type: none;
       cursor: pointer;
-      
     }
-
   }
 }
 
-.hidden{
+.hidden {
   display: none;
 }
 
-.profile_image{
+.profile_image {
   width: 3rem;
   border-radius: 100rem;
+}
+
+.user_image {
+  position: relative;
+  .modal_image {
+    position: absolute;
+    top: 6rem;
+    right: 0;
+    display: flex;
+    gap: 0.2rem;
+    flex-direction: column;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    padding: 1rem;
+    transition: 0.5s ease;
+    &_displayName {
+      font-size: 1.4rem;
+      font-weight: bold;
+    }
+    &_email {
+      font-size: 1.3rem;
+      color: rgb(32, 32, 32);
+    }
+    &_account,
+    &_signOut {
+      display: flex;
+      justify-items: center;
+      font-size: 1.4rem;
+      gap: 1rem;
+    }
+  }
 }
