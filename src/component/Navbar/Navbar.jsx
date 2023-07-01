@@ -1,19 +1,15 @@
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import defaultProfile from "../../assets/defaultProfile.png";
+import defaultProfile from "../../assets/defaultProfile.jpg";
 import logo from "../../assets/logov3.png";
 import { categoriesData } from "../../constants";
 import { UserContext } from "../../context/UserProvider";
 import { signOutUser } from "../../utils/firebase/firebase";
 const Navbar = () => {
-  const { currentUser, setCurrentUser } = useContext(UserContext);
-  console.log(currentUser);
-  console.log(currentUser?.photoURL);
+  //current User
+  const { currentUser } = useContext(UserContext);
 
-  const signOutHandler = async () => {
-    await signOutUser();
-    setCurrentUser(null);
-  };
+
   // if photoURL is not null, undefined or "undefined"
   const isPhotoURLValid = (url) => url && url !== "undefined";
 
@@ -53,12 +49,12 @@ const Navbar = () => {
                 }
                 alt="Profile"
                 className="profile_image"
-                onClick={signOutHandler}
+                onClick={signOutUser}
               />
             </Link>
           ) : (
             <Link to="signIn">
-              <i className="fa-solid fa-user"></i>
+              <i className="fa-solid fa-user" ></i>
             </Link>
           )}
         </ul>

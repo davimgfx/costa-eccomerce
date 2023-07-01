@@ -1,4 +1,4 @@
-import { useState, useContext } from "react";
+import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import logo from "../../assets/logov3.png";
 import signUpImg from "../../assets/signUpImg.png";
@@ -7,7 +7,7 @@ import {
   createUserDocumentFromAuth,
 } from "../../utils/firebase/firebase.js";
 import FormInput from "./FormInput.jsx";
-import { UserContext } from "../../context/UserProvider";
+
 
 const defaultFormFields = {
   displayName: "",
@@ -25,8 +25,6 @@ const SignUpLayout = () => {
   const { displayName, email, password, confirmPassword, providerId } =
     formFields;
 
-    const { setCurrentUser } = useContext(UserContext)
-
 
   const resetFormField = () => {
     setFormFields(defaultFormFields);
@@ -43,10 +41,7 @@ const SignUpLayout = () => {
       const { user } = await createAuthUserWithEmailAndPassword(
         email,
         password
-      );
-
-      setCurrentUser(user) 
-      
+      );   
       await createUserDocumentFromAuth(user, { displayName, providerId });
       alert("Account create");
       navigate("/");

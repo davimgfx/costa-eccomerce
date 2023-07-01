@@ -1,9 +1,9 @@
-import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import google_icon from "../../assets/google_icon.png";
 import logo from "../../assets/logov3.png";
 import signInImg from "../../assets/signInImg.png";
-import { UserContext } from "../../context/UserProvider";
+
 import {
   createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
@@ -11,7 +11,6 @@ import {
   signInWithGooglePopup,
 } from "../../utils/firebase/firebase";
 import FormInput from "./FormInput.jsx";
-import { useNavigate } from 'react-router-dom';
 
 const defaultFormFields = {
   email: "",
@@ -24,20 +23,17 @@ const SignInLayout = () => {
 
   //Create and Login with Google and Github account
   const loginWithGoogleGithub = async (provider) => {
-    const { user } = await provider();
-    await createUserDocumentFromAuth(user);
-    setCurrentUser(user);
-    navigate("/");
-    console.log(user);
+    await provider();
+
+    //navigate("/");
   };
 
   // Login with Email and Password account
   const [formFields, setFormFields] = useState(defaultFormFields);
   const { email, password } = formFields;
 
-
   // Context
-  const { currentUser, setCurrentUser } = useContext(UserContext);
+
 
   const resetPassword = () => {
     setFormFields({ password: "" });
@@ -62,14 +58,12 @@ const SignInLayout = () => {
         email,
         password
       );
-      setCurrentUser(user);
-      console.log(currentUser)
-      console.log(user)
+      console.log(user);
       alert("Sucess Login in");
       setLoggedIn(true);
 
       navigate("/");
-      
+
       resetFormFields();
     } catch (error) {
       switch (error.code) {
@@ -84,7 +78,7 @@ const SignInLayout = () => {
           break;
       }
 
-     resetPassword();
+      resetPassword();
     }
   };
 
