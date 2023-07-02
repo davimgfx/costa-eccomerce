@@ -8,6 +8,7 @@ import { signOutUser } from "../../utils/firebase/firebase";
 const Navbar = () => {
   //current User
   const { currentUser } = useContext(UserContext);
+  console.log(currentUser )
   const [modalUser, setModalUser] = useState(false);
   // if photoURL is not null, undefined or "undefined"
   const isPhotoURLValid = (url) => url && url !== "undefined";
@@ -24,7 +25,17 @@ const Navbar = () => {
     <header>
       <nav className="navbar">
         <Link to="/">
-          <img src={logo} alt="Logo" className="logo" />
+          <img
+            src={logo}
+            alt="Logo"
+            className="logo"
+            onClick={() => {
+              if (modalUser) {
+                setModalUser(!modalUser);
+              }
+              return
+            }}
+          />
         </Link>
         <ul className="nav-items-pages">
           <Link to="shop">
@@ -39,42 +50,39 @@ const Navbar = () => {
             <i className="fa-solid fa-cart-shopping"></i>
           </li>
           {currentUser ? (
-            <Link to="signIn">
-            
-              <div className="user_image">
-                <img
-                  src={
-                    isPhotoURLValid(currentUser.photoURL)
-                      ? currentUser.photoURL
-                      : defaultProfile
-                  }
-                  alt="Profile"
-                  className="profile_image"
-                  onClick={() => {
-                    setModalUser(!modalUser)
-                  }}
-                />
-                <div
-                  className={modalUser ? "modal_image" : "hidden"}
-                 
-                >
-                  <p className="modal_image_displayName">{currentUser.displayName}</p>
-                  <p className="modal_image_email">{currentUser.email}</p>
-                  <div className="modal_image_account">
-                  <i class="fa-solid fa-user"></i>
+            <div className="user_image">
+              <img
+                src={
+                  isPhotoURLValid(currentUser.photoURL)
+                    ? currentUser.photoURL
+                    : defaultProfile
+                }
+                alt="Profile_image"
+                className="profile_image"
+                onClick={() => {
+                  setModalUser(!modalUser);
+                }}
+              />
+              <div className={modalUser ? "modal_image" : "hidden"}>
+                <p className="modal_image_displayName">
+                  {currentUser?.displayName}
+                </p>
+                <p className="modal_image_email">{currentUser.email}</p>
+                <div className="modal_image_bars"></div>
+              
+                <div className="modal_image_account">
+                  <i className="fa-solid fa-user"></i>
                   <p>Account</p>
-                  </div>
-                  <div className="modal_image_signOut">
-                  <i class="fa-solid fa-right-from-bracket"></i>
+                </div>
+                <div className="modal_image_signOut">
+                  <i className="fa-solid fa-right-from-bracket"></i>
                   <p onClick={signOutUser}>Sign Out</p>
-                  </div>
                 </div>
               </div>
-              
-            </Link>
+            </div>
           ) : (
             <Link to="signIn">
-              <i className="fa-solid fa-user" ></i>
+              <i className="fa-solid fa-user"></i>
             </Link>
           )}
         </ul>

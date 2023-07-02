@@ -32,6 +32,7 @@ const SignUpLayout = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+
     if (password !== confirmPassword) {
       alert("Passwords do not match");
       return;
@@ -43,8 +44,7 @@ const SignUpLayout = () => {
         password
       );   
       await createUserDocumentFromAuth(user, { displayName, providerId });
-      alert("Account create");
-      navigate("/");
+      //navigate("/");
       resetFormField();
 
 
