@@ -5,6 +5,7 @@ import logo from "../../assets/logov3.png";
 import { categoriesData } from "../../constants/categoryItem";
 import { UserContext } from "../../context/UserProvider";
 import { signOutUser } from "../../utils/firebase/firebase";
+import CartIcon from "../CartIcon/CartIcon";
 const Navbar = () => {
   //current User
   const { currentUser } = useContext(UserContext);
@@ -46,9 +47,8 @@ const Navbar = () => {
           ))}
         </ul>
         <ul className="nav-items-account">
-          <li>
-            <i className="fa-solid fa-cart-shopping"></i>
-          </li>
+          <CartIcon />
+          
           {currentUser ? (
             <div className="user_image">
               <img

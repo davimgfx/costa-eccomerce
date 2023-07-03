@@ -3,10 +3,12 @@ import Navbar from "./Navbar/Navbar"
 import SignInLayout from "./SignLayout/SignInLayout";
 import SignUpLayout from "./SignLayout/SignUpLayout";
 import ProductCard from "./ProductCard/ProductCard";
+import CartIcon from "./CartIcon/CartIcon";
 export {
     CategoryItem,
     Navbar,
     SignInLayout,
     SignUpLayout,
-    ProductCard
-}
+    ProductCard, 
+    CartIcon
+ }
