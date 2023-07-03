@@ -54,7 +54,7 @@ header {
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 1rem;
     transition: 0.5s ease;
-    z-index: 999;
+    z-index: 99;
     background-color: white;
     &_displayName {
       font-size: 1.4rem;
@@ -101,3 +101,14 @@ header {
   }
 
 } 
+
+.dropdown-div {
+  z-index: 199;
+  position: fixed;
+  padding: 1.3rem;
+  top: 0;
+  left: 75%;
+  height: 100%;
+  width: 100%;
+  background: white;
+}

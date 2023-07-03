@@ -5,6 +5,7 @@ import "./sass/main.scss";
 import App from "./App";
 import { UserProvider } from "./context/UserProvider";
 import { ProductsProvider } from "./context/Products";
+import { CartProvider } from "./context/Cart";
 import { ErrorPage, Home, SignIn, SignUp, Shop } from "./Pages";
 
 const router = createBrowserRouter([
@@ -40,8 +41,12 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
       <ProductsProvider>
 
-        <RouterProvider router={router} />
-        
+        <CartProvider>
+
+          <RouterProvider router={router} />
+          
+        </CartProvider>
+
       </ProductsProvider>
 
     </UserProvider>

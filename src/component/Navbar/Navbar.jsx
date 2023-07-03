@@ -5,10 +5,19 @@ import logo from "../../assets/logov3.png";
 import { categoriesData } from "../../constants/categoryItem";
 import { UserContext } from "../../context/UserProvider";
 import { signOutUser } from "../../utils/firebase/firebase";
+import { CartContext } from "../../context/Cart";
+import CartDropdown from "../CartDropdown/CartDropdown";
 import CartIcon from "../CartIcon/CartIcon";
+
+
 const Navbar = () => {
   //current User
   const { currentUser } = useContext(UserContext);
+  const { setIsCartOpen, isCartOpen } = useContext(CartContext)
+  const toggleIsCartOpen = () =>  { if(isCartOpen){
+    setIsCartOpen(!isCartOpen)
+  } return}
+
   //console.log(currentUser);
   const [modalUser, setModalUser] = useState(false);
   // if photoURL is not null, undefined or "undefined"
@@ -25,7 +34,7 @@ const Navbar = () => {
   return (
     <header>
       <nav className="navbar">
-        <Link to="/">
+        <Link to="/" onClick={toggleIsCartOpen}>
           <img
             src={logo}
             alt="Logo"
@@ -39,16 +48,16 @@ const Navbar = () => {
           />
         </Link>
         <ul className="nav-items-pages">
-          <Link to="shop">
+          <Link to="shop" onClick={toggleIsCartOpen}>
             <li>Shop</li>
           </Link>
           {orderedCategoriesData.map((item) => (
-            <li key={item.id}>{item.title}</li>
+            <li key={item.id} onClick={toggleIsCartOpen}>{item.title}</li>
           ))}
         </ul>
         <ul className="nav-items-account">
           <CartIcon />
-          
+          { isCartOpen && <CartDropdown />}
           {currentUser ? (
             <div className="user_image">
               <img
