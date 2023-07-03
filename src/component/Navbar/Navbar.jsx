@@ -2,13 +2,13 @@ import { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import defaultProfile from "../../assets/defaultProfile.jpg";
 import logo from "../../assets/logov3.png";
-import { categoriesData } from "../../constants";
+import { categoriesData } from "../../constants/categoryItem";
 import { UserContext } from "../../context/UserProvider";
 import { signOutUser } from "../../utils/firebase/firebase";
 const Navbar = () => {
   //current User
   const { currentUser } = useContext(UserContext);
-  console.log(currentUser )
+  //console.log(currentUser);
   const [modalUser, setModalUser] = useState(false);
   // if photoURL is not null, undefined or "undefined"
   const isPhotoURLValid = (url) => url && url !== "undefined";
@@ -33,7 +33,7 @@ const Navbar = () => {
               if (modalUser) {
                 setModalUser(!modalUser);
               }
-              return
+              return;
             }}
           />
         </Link>
@@ -69,7 +69,7 @@ const Navbar = () => {
                 </p>
                 <p className="modal_image_email">{currentUser.email}</p>
                 <div className="modal_image_bars"></div>
-              
+
                 <div className="modal_image_account">
                   <i className="fa-solid fa-user"></i>
                   <p>Account</p>

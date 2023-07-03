@@ -4,7 +4,8 @@ import ReactDOM from "react-dom/client";
 import "./sass/main.scss";
 import App from "./App";
 import { UserProvider } from "./context/UserProvider";
-import { ErrorPage, Home, SignIn, SignUp } from "./Pages";
+import { ProductsProvider } from "./context/Products";
+import { ErrorPage, Home, SignIn, SignUp, Shop } from "./Pages";
 
 const router = createBrowserRouter([
   {
@@ -18,7 +19,7 @@ const router = createBrowserRouter([
       },
       {
         path: "shop",
-        element: <Home />,
+        element: <Shop />,
       },
       {
         path: "signIn",
@@ -34,8 +35,16 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
+
     <UserProvider>
-      <RouterProvider router={router} />
+
+      <ProductsProvider>
+
+        <RouterProvider router={router} />
+        
+      </ProductsProvider>
+
     </UserProvider>
+
   </React.StrictMode>
 );

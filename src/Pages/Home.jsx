@@ -1,8 +1,7 @@
-import React from "react";
-import { categoriesData } from "../constants";
+import React, { useContext } from "react";
 import { CategoryItem } from "../component";
+import { categoriesData } from "../constants/categoryItem";
 import { UserContext } from "../context/UserProvider";
-import { useContext } from "react";
 
 const Home = () => {
   const { currentUser } = useContext(UserContext);
