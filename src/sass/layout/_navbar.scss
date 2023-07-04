@@ -105,10 +105,78 @@ header {
 .dropdown-div {
   z-index: 199;
   position: fixed;
-  padding: 1.3rem;
+  padding: 4rem;
   top: 0;
-  left: 75%;
-  height: 100%;
-  width: 100%;
+  right: 0;
+  height: 100vh;
+  width: 50rem;
   background: white;
+  
+  .dropdown-div-title{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-weight: bold;
+  }
+  .dropdown-div-cartItems{
+    margin: 1rem 0;
+    padding-bottom: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    height: 80%;
+    overflow-y: scroll;
+  }
+  .dropdown-div-cart-empty{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem
+  }
+  .dropdown-div-cartItem{
+    display: grid;
+    grid-template-columns: 30fr 50fr 20fr;
+    height: 15rem;
+    width: 100%;
+    margin-top: 1rem;
+
+    .dropdown-div-cartItem-div-image{
+      background-color: #fff;
+      height: 14rem;
+      margin: auto 1rem;
+      padding: 1rem;
+      width: 100%;
+      box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+      border-radius: 1rem;
+    }
+    .dropdown-div-cartItem-image{
+      height: 100%;
+      object-fit: cover;
+      width: 100%;
+      border-radius: 1rem;
+    }
+
+    .dropdown-div-cartItem-text{
+      margin: 2rem;
+      font-size: 1.1rem;
+      text-align: left;
+      position: relative;
+    }
+
+    .dropdown-div-cartItem-close{
+      margin-top: 2rem;
+      font-size: 1.6rem;
+    }
+  }
+  .dropdown-div-subtotal{
+    margin-top: 1rem;
+    border-top: 2px dashed black;
+    display: flex;
+    justify-content: space-between;
+    .dropdown-div-subtotal-title, .dropdown-div-subtotal-btn{
+      margin-top: 1rem;
+      
+    }
+  }
 }
