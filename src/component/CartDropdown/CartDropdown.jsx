@@ -17,7 +17,7 @@ const CartDropdown = () => {
         <h2>Your Shopping Cart ({cartCount})</h2>
         <i className="fa-solid fa-x" onClick={toggleIsCartOpen}></i>
       </div>
-      {cartItems === 0 ? (
+      {cartCount === 0 ? (
         <div className="dropdown-div-cart-empty">
           <img src={imageCartEmpty} />
           <h2>Your Cart is empty</h2>
@@ -34,7 +34,7 @@ const CartDropdown = () => {
           ))}
         </div>
       )}
-      {cartItems === 0 ? (
+      {cartCount === 0 ? (
         ""
       ) : (
         <div className="dropdown-div-subtotal">
