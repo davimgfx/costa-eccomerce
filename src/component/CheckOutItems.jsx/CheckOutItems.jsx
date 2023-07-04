@@ -1,10 +1,12 @@
 import { useContext } from "react";
 import { CartContext } from "../../context/Cart";
-
+import { useNavigate } from "react-router-dom";
 const CheckOutItems = () => {
   const { cartItems, addItemToCart } = useContext(CartContext);
   console.log(cartItems)
-  
+  const itemsSubtotal =  cartItems.map((item) => item.quantity * item.price)
+  .reduce((acc, item) => acc + item, 0);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -36,8 +38,25 @@ const CheckOutItems = () => {
             </div>
           </div>
           <div className="checkout-item-bars"></div>
+          
         </>
       ))}
+      {itemsSubtotal === 0 ? (<div className="checkout-total">
+        <div className="checkout-total-title">
+        <h2>Your Car is Empty </h2>
+        </div>
+       
+        <button className="btn" onClick={() => {navigate("../shop")}}>Go to the shop</button>
+        
+      </div>) : ( <div className="checkout-total">
+        <div className="checkout-total-title">
+        <h2>Total:</h2>
+        <p>$ {itemsSubtotal}</p>
+        </div>
+        <button className="btn">Buy This shits</button>
+      </div>)}
+     
+      
     </>
   );
 };

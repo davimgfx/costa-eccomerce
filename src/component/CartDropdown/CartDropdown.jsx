@@ -21,7 +21,7 @@ const CartDropdown = () => {
       </div>
       {cartCount === 0 ? (
         <div className="dropdown-div-cart-empty">
-          <img src={imageCartEmpty} />
+          <img src={imageCartEmpty} className="dropdown-div-cart-empty-image"/>
           <h2>Your Cart is empty</h2>
           <button
             className="btn dropdown-div-subtotal-btn"
