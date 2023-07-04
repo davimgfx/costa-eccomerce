@@ -44,7 +44,7 @@ const SignUpLayout = () => {
         password
       );   
       await createUserDocumentFromAuth(user, { displayName, providerId });
-      //navigate("/");
+      navigate("/");
       resetFormField();
 
 

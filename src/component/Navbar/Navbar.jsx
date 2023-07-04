@@ -1,4 +1,4 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import defaultProfile from "../../assets/defaultProfile.jpg";
 import logo from "../../assets/logov3.png";
@@ -13,10 +13,28 @@ import CartIcon from "../CartIcon/CartIcon";
 const Navbar = () => {
   //current User
   const { currentUser } = useContext(UserContext);
+
+  //cart open
   const { setIsCartOpen, isCartOpen } = useContext(CartContext)
   const toggleIsCartOpen = () =>  { if(isCartOpen){
     setIsCartOpen(!isCartOpen)
   } return}
+
+  const modalRef = useRef(null);
+
+  useEffect(() => {
+    const handleOutsideClick = (event) => {
+      if (modalRef.current && !modalRef.current.contains(event.target)) {
+        setModalUser(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleOutsideClick);
+
+    return () => {
+      document.removeEventListener("mousedown", handleOutsideClick);
+    };
+  }, []);
 
   //console.log(currentUser);
   const [modalUser, setModalUser] = useState(false);
@@ -72,7 +90,7 @@ const Navbar = () => {
                   setModalUser(!modalUser);
                 }}
               />
-              <div className={modalUser ? "modal_image" : "hidden"}>
+              <div className={modalUser ? "modal_image" : "hidden"} ref={modalRef}>
                 <p className="modal_image_displayName">
                   {currentUser?.displayName}
                 </p>
@@ -82,6 +100,12 @@ const Navbar = () => {
                 <div className="modal_image_account">
                   <i className="fa-solid fa-user"></i>
                   <p>Account</p>
+                </div>
+                <div className="modal_image_checkout">
+                <i class="fa-solid fa-cart-shopping"></i>
+                <Link to="../../checkOut">
+                  <p>Check Up</p>
+                </Link>
                 </div>
                 <div className="modal_image_signOut">
                   <i className="fa-solid fa-right-from-bracket"></i>

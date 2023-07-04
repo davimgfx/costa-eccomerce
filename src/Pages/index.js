@@ -3,10 +3,12 @@ import Home from "./Home.jsx"
 import SignIn from "./SignIn.jsx"
 import SignUp from "./SignUp.jsx"
 import Shop from './Shop.jsx';
+import CheckOut from "./CheckOut.jsx";
 export {
     ErrorPage,
     Home,
     SignIn,
     SignUp,
     Shop,
+    CheckOut
 }

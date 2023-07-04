@@ -25,7 +25,7 @@ const SignInLayout = () => {
   const loginWithGoogleGithub = async (provider) => {
     await provider();
 
-    //navigate("/");
+    navigate("/");
   };
 
   // Login with Email and Password account

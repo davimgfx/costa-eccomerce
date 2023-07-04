@@ -49,7 +49,7 @@ header {
     top: 6rem;
     right: 0;
     display: flex;
-    gap: 0.2rem;
+    gap: 0.4rem;
     flex-direction: column;
     box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
     padding: 1rem;
@@ -72,9 +72,11 @@ header {
       background-color: rgb(32, 32, 32);
     }
     &_account,
-    &_signOut {
+    &_signOut,
+    &_checkout {
       display: flex;
-      justify-items: center;
+      justify-items: flex-start;
+      align-items: center;
       font-size: 1.4rem;
       gap: 1rem;
     }
@@ -87,7 +89,7 @@ header {
   align-items: center;
   justify-content: center;
   position: relative;
-  .cart-container-items{ 
+  &-items{ 
     background: $color-primary;
     text-align: center;
     font-size: 1.2rem;
@@ -112,13 +114,13 @@ header {
   width: 50rem;
   background: white;
   
-  .dropdown-div-title{
+  &-title{
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-weight: bold;
   }
-  .dropdown-div-cartItems{
+  &-cartItems{
     margin: 1rem 0;
     padding-bottom: 1rem;
     display: flex;
@@ -128,20 +130,20 @@ header {
     height: 80%;
     overflow-y: scroll;
   }
-  .dropdown-div-cart-empty{
+  &-cart-empty{
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: 2rem
   }
-  .dropdown-div-cartItem{
+  &-cartItem{
     display: grid;
-    grid-template-columns: 30fr 50fr 20fr;
+    grid-template-columns: 40fr 50fr 10fr;
     height: 15rem;
     width: 100%;
     margin-top: 1rem;
 
-    .dropdown-div-cartItem-div-image{
+    &-div-image{
       background-color: #fff;
       height: 14rem;
       margin: auto 1rem;
@@ -150,21 +152,25 @@ header {
       box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
       border-radius: 1rem;
     }
-    .dropdown-div-cartItem-image{
+    &-image{
       height: 100%;
       object-fit: cover;
       width: 100%;
       border-radius: 1rem;
     }
 
-    .dropdown-div-cartItem-text{
+    &-text{
       margin: 2rem;
-      font-size: 1.1rem;
+      font-size: 1.3rem;
       text-align: left;
       position: relative;
+
+      p{
+        font-size: 1.5rem;
+      }
     }
 
-    .dropdown-div-cartItem-close{
+    &-close{
       margin-top: 2rem;
       font-size: 1.6rem;
     }
@@ -174,9 +180,13 @@ header {
     border-top: 2px dashed black;
     display: flex;
     justify-content: space-between;
-    .dropdown-div-subtotal-title, .dropdown-div-subtotal-btn{
+    align-items: center;
+    &-title, &-btn {
       margin-top: 1rem;
-      
+    }
+    &-btn {
+      width: 20rem;
+      height: 4rem;
     }
   }
 }

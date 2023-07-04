@@ -2,6 +2,7 @@ import { useContext } from "react";
 import imageCartEmpty from "../../assets/imageCartEmpty.png";
 import { CartContext } from "../../context/Cart";
 import CardItem from "../CartItem/CartItem";
+import { Link } from "react-router-dom";
 const CartDropdown = () => {
   const { setIsCartOpen, isCartOpen, cartCount } = useContext(CartContext);
   const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen);
@@ -44,9 +45,11 @@ const CartDropdown = () => {
             <p>Items: {cartCount}</p>
             <p>${itemsSubtotal}</p>
           </div>
-          <button className="btn dropdown-div-subtotal-btn">
-            Go to the CheckUp
-          </button>
+          <Link to="../CheckOut">
+            <button className="btn dropdown-div-subtotal-btn" onClick={toggleIsCartOpen}>
+              Go to the CheckUp
+            </button>
+          </Link>
         </div>
       )}
     </div>
