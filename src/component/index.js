@@ -4,11 +4,13 @@ import SignInLayout from "./SignLayout/SignInLayout";
 import SignUpLayout from "./SignLayout/SignUpLayout";
 import ProductCard from "./ProductCard/ProductCard";
 import CartIcon from "./CartIcon/CartIcon";
+import CheckOutItems from "./CheckOutItems.jsx/CheckOutItems";
 export {
     CategoryItem,
     Navbar,
     SignInLayout,
     SignUpLayout,
     ProductCard, 
-    CartIcon
+    CartIcon,
+    CheckOutItems
  }

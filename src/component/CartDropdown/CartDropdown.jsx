@@ -3,6 +3,7 @@ import imageCartEmpty from "../../assets/imageCartEmpty.png";
 import { CartContext } from "../../context/Cart";
 import CardItem from "../CartItem/CartItem";
 import { Link } from "react-router-dom";
+
 const CartDropdown = () => {
   const { setIsCartOpen, isCartOpen, cartCount } = useContext(CartContext);
   const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen);
