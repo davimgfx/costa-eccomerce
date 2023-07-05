@@ -1,7 +1,8 @@
-import React from "react";
-
+import { useContext } from "react";
+import { CartContext } from "../../context/Cart";
 const CartItem = ({ cartItem }) => {
   // const { name, quantity } = cartItem
+  const {  clearItemToCart } = useContext(CartContext);
   return (
     <div className="dropdown-div-cartItem">
       <div className="dropdown-div-cartItem-div-image">
@@ -22,7 +23,7 @@ const CartItem = ({ cartItem }) => {
         </p>
       </div>
       <div className="dropdown-div-cartItem-close">
-        <i className="fa-solid fa-x dropdown-div-cartItem-text-close-items"></i>
+        <i className="fa-solid fa-x dropdown-div-cartItem-text-close-items" onClick={() => clearItemToCart(cartItem)}></i>
       </div>
     </div>
   );

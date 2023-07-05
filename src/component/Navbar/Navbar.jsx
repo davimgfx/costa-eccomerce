@@ -97,12 +97,9 @@ const Navbar = () => {
                 <p className="modal_image_email">{currentUser.email}</p>
                 <div className="modal_image_bars"></div>
 
-                <div className="modal_image_account">
-                  <i className="fa-solid fa-user"></i>
-                  <p>Account</p>
-                </div>
+             
                 <div className="modal_image_checkout">
-                <i class="fa-solid fa-cart-shopping"></i>
+                <i className="fa-solid fa-cart-shopping"></i>
                 <Link to="../../checkOut">
                   <p>Check Up</p>
                 </Link>

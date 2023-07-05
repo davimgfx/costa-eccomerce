@@ -5,10 +5,8 @@ import CardItem from "../CartItem/CartItem";
 import { Link } from "react-router-dom";
 
 const CartDropdown = () => {
-  const { setIsCartOpen, isCartOpen, cartCount } = useContext(CartContext);
+  const { setIsCartOpen, isCartOpen, cartCount, cartItems } = useContext(CartContext);
   const toggleIsCartOpen = () => setIsCartOpen(!isCartOpen);
-  const { cartItems } = useContext(CartContext);
-  console.log(cartItems)
   const itemsSubtotal =  cartItems.map((item) => item.quantity * item.price)
   .reduce((acc, item) => acc + item, 0);
 
@@ -48,7 +46,7 @@ const CartDropdown = () => {
           </div>
           <Link to="../CheckOut">
             <button className="btn dropdown-div-subtotal-btn" onClick={toggleIsCartOpen}>
-              Go to the CheckUp
+              Go to the Check Out
             </button>
           </Link>
         </div>
