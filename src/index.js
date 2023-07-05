@@ -4,7 +4,7 @@ import ReactDOM from "react-dom/client";
 import "./sass/main.scss";
 import App from "./App";
 import { UserProvider } from "./context/UserProvider";
-import { ProductsProvider } from "./context/Products";
+import { CategoriesProvider } from "./context/Categories";
 import { CartProvider } from "./context/Cart";
 import { ErrorPage, Home, SignIn, SignUp, Shop, CheckOut  } from "./Pages";
 
@@ -43,7 +43,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
 
     <UserProvider>
 
-      <ProductsProvider>
+      <CategoriesProvider>
 
         <CartProvider>
 
@@ -51,7 +51,7 @@ ReactDOM.createRoot(document.getElementById("root")).render(
           
         </CartProvider>
 
-      </ProductsProvider>
+      </CategoriesProvider>
 
     </UserProvider>
 

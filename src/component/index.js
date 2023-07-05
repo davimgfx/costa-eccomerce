@@ -5,6 +5,7 @@ import SignUpLayout from "./SignLayout/SignUpLayout";
 import ProductCard from "./ProductCard/ProductCard";
 import CartIcon from "./CartIcon/CartIcon";
 import CheckOutItems from "./CheckOutItems.jsx/CheckOutItems";
+import CategoryPreview from "./CategoryPreview/CategoryPreview";
 export {
     CategoryItem,
     Navbar,
@@ -12,5 +13,6 @@ export {
     SignUpLayout,
     ProductCard, 
     CartIcon,
-    CheckOutItems
+    CheckOutItems,
+    CategoryPreview
  }
