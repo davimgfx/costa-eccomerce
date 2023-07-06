@@ -1,5 +1,5 @@
 import "./sass/main.scss";
-import { Navbar } from "./component";
+import { Navbar, Footer } from "./component";
 import { Outlet, useLocation } from "react-router-dom";
 
 const App = () => {
@@ -20,6 +20,7 @@ const App = () => {
     <>
       <Navbar />
       <Outlet />
+      <Footer />
     </>
   );
 };

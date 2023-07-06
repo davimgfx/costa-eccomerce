@@ -6,6 +6,7 @@ import ProductCard from "./ProductCard/ProductCard";
 import CartIcon from "./CartIcon/CartIcon";
 import CheckOutItems from "./CheckOutItems.jsx/CheckOutItems";
 import CategoryPreview from "./CategoryPreview/CategoryPreview";
+import Footer from "./Footer/Footer";
 
 export {
     CategoryItem,
@@ -16,5 +17,5 @@ export {
     CartIcon,
     CheckOutItems,
     CategoryPreview,
-    
+    Footer 
  }
