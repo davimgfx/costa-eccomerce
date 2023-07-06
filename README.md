@@ -17,6 +17,13 @@ Welcome to Costa Ecommerce, a minimalist online store. Our website showcases a m
 
 ## Screenshots of the Project
 
+### Shop Page
+![Shop_Page](https://github.com/davimgfx/costa-eccomerce/assets/118557337/fd4322f1-4428-4a18-9972-198ad645e727)
+
+### Womens Page
+![Womens_Page](https://github.com/davimgfx/costa-eccomerce/assets/118557337/0d1d27ca-1a1d-4f4e-abd8-093e98e3bd94)
+
+
 ### Check out without items
 ![Check_out_without_items](https://github.com/davimgfx/costa-eccomerce/assets/118557337/038db7e0-186c-44cd-9359-bd4ced1a298a)
 
