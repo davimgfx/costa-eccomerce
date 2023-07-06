@@ -10,8 +10,8 @@ const Home = () => {
       {categoriesData.map((category) => (
         <Link
           to={`/shop/${category.title.toLowerCase()}`}
-          className="category-container">
-          <CategoryItem category={category} key={category.id} />
+          className="category-container" key={category.id}>
+          <CategoryItem category={category}/>
         </Link>
       ))}
     </div>
