@@ -2,6 +2,7 @@
 import React, { useContext } from "react";
 import { CategoriesContext } from "../../context/Categories";
 import ProductCard from "../ProductCard/ProductCard";
+import {Link} from "react-router-dom"
 
 const capitalizeFirstLetter = word => word.charAt(0).toUpperCase() + word.slice(1);
 const CategoryPreview = () => {
@@ -25,9 +26,11 @@ const CategoryPreview = () => {
       <div className="shop-cards"> 
         {orderedCategoriesDataTitles.map((title, index) => (
           <div key={index}>
-            <h2 className="product-card-title">{capitalizeFirstLetter(title)}</h2>
+            <Link to={`/shop/${title}`}>
+              <h2 className="product-card-title">{capitalizeFirstLetter(title)}</h2>
+            </Link>
             <div className="product-card">
-        
+              
               {categoriesMap[title]
                 .filter((_, index) => index < 4)
                 .map((product) => (

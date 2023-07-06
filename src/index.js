@@ -6,7 +6,7 @@ import App from "./App";
 import { UserProvider } from "./context/UserProvider";
 import { CategoriesProvider } from "./context/Categories";
 import { CartProvider } from "./context/Cart";
-import { ErrorPage, Home, SignIn, SignUp, Shop, CheckOut  } from "./Pages";
+import { ErrorPage, Home, SignIn, SignUp, Shop, CheckOut, Category } from "./Pages";
 
 const router = createBrowserRouter([
   {
@@ -34,6 +34,10 @@ const router = createBrowserRouter([
         path: "checkOut",
         element: <CheckOut />,
       },
+      {
+        path: "shop/:id",
+        element: <Category />
+      }
     ],
   },
 ]);

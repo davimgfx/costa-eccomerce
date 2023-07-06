@@ -89,9 +89,11 @@ const Navbar = () => {
             <li>Shop</li>
           </Link>
           {orderedCategoriesData.map((item) => (
-            <li key={item.id} onClick={toggleIsCartOpen}>
-              {item.title}
-            </li>
+            <Link to={`shop/${item.title.toLowerCase()}`} key={item.id}>
+              <li onClick={toggleIsCartOpen}>
+                {item.title}
+              </li>
+            </Link>
           ))}
         </ul>
         <ul className="nav-items-account">
