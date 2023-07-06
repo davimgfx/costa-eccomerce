@@ -14,14 +14,29 @@ Welcome to Costa Ecommerce, a minimalist online store. Our website showcases a m
 - React JS <br>
 - Sass  <br>
 - Firebase <br>
+- Styled Component <br>
 
-## Screenshots of the Project
+## Screenshots of the Project Pages
+
+### Shop Page
+![Shop_Page](https://github.com/davimgfx/costa-eccomerce/assets/118557337/fd4322f1-4428-4a18-9972-198ad645e727)
+
+### Womens Page
+![Womens_Page](https://github.com/davimgfx/costa-eccomerce/assets/118557337/0d1d27ca-1a1d-4f4e-abd8-093e98e3bd94)
+
+### Check out Page
+![Check_out_with_items](https://github.com/davimgfx/costa-eccomerce/assets/118557337/fba867c9-44b3-4b6b-9c96-6575473cad6a)
+
+### Login Page
+![Login_Page](https://github.com/davimgfx/costa-eccomerce/assets/118557337/4d4d2ce9-be5e-4638-8aa4-c239424b2aa5)
+
+### SignUp Page
+![Sign_Up](https://github.com/davimgfx/costa-eccomerce/assets/118557337/6bd0c247-9dfe-496c-b410-56c289e97ea0)
+
+## Other Screenshots
 
 ### Check out without items
 ![Check_out_without_items](https://github.com/davimgfx/costa-eccomerce/assets/118557337/038db7e0-186c-44cd-9359-bd4ced1a298a)
-
-### Check out with items
-![Check_out_with_items](https://github.com/davimgfx/costa-eccomerce/assets/118557337/fba867c9-44b3-4b6b-9c96-6575473cad6a)
 
 ### Cart With Items
 
@@ -30,8 +45,3 @@ Welcome to Costa Ecommerce, a minimalist online store. Our website showcases a m
 ### Cart Empty
 ![Cart_Empty](https://github.com/davimgfx/costa-eccomerce/assets/118557337/22de2723-beed-4ae5-9bfd-a022b22080c6)
 
-### Login Page
-![Login_Page](https://github.com/davimgfx/costa-eccomerce/assets/118557337/4d4d2ce9-be5e-4638-8aa4-c239424b2aa5)
-
-### SignUp Page
-![Sign_Up](https://github.com/davimgfx/costa-eccomerce/assets/118557337/6bd0c247-9dfe-496c-b410-56c289e97ea0)
