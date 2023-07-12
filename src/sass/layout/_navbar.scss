@@ -55,6 +55,7 @@ header {
     padding: 1rem;
     transition: 0.5s ease;
     z-index: 99;
+    min-width: 15rem;
     background-color: white;
     &_displayName {
       font-size: 1.4rem;

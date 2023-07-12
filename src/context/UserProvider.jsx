@@ -1,9 +1,12 @@
-import { createContext,  useEffect, useReducer } from "react";
+import { createContext,  useEffect, useReducer, useState } from "react";
 import { createUserDocumentFromAuth, onAuthStateChangedListener} from "../utils/firebase/firebase";
 import {createAction} from "../utils/reducer/reducer"
+import { getCategoriesAndDocumentsFromUser } from "../utils/firebase/firebase";
+
 export const UserContext = createContext({
   setCurrentUser: () => null,
   currentUser: null,
+  userInfos: {}
 });
 
 
@@ -30,15 +33,14 @@ const INITIAL_STATE = {
 }
 
 export const UserProvider = ({ children }) => {
-  // const [currentUser, setCurrentUser] = useState(null);
   const [ { currentUser } , dispatch ] = useReducer( userReducer, INITIAL_STATE)
-  console.log(currentUser)
+  const [ userInfos, setUserInfos] = useState({});
 
   const setCurrentUser = (user) => {
     dispatch(createAction( USER_ACTION_TYPES.SET_CURRENT_USER,  user))
   }
   
-  const value = { currentUser, setCurrentUser };
+  
 
   useEffect(() => {
     const unsubscribe = onAuthStateChangedListener((user) => {
@@ -51,7 +53,17 @@ export const UserProvider = ({ children }) => {
     return unsubscribe
   }, [])
 
+  useEffect(() => {
+    const getUsersInfos = async () => {
+      const userTest = await getCategoriesAndDocumentsFromUser()
+      setUserInfos(userTest)
+    }
+    
+    getUsersInfos()
+    
+  }, [])
 
+  const value = { currentUser, setCurrentUser, userInfos };
 
   return <UserContext.Provider value={value}>{children}</UserContext.Provider>;
 };

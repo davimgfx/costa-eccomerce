@@ -5,32 +5,27 @@ import logo from "../../assets/logov3.png";
 import { categoriesData } from "../../constants/categoryItem";
 import { CartContext } from "../../context/Cart";
 import { UserContext } from "../../context/UserProvider";
-import {
-  getCategoriesAndDocumentsFromUser,
-  signOutUser,
-} from "../../utils/firebase/firebase";
+import { signOutUser } from "../../utils/firebase/firebase";
 import CartDropdown from "../CartDropdown/CartDropdown";
 import CartIcon from "../CartIcon/CartIcon";
 
 const Navbar = () => {
   //current User
-  const { currentUser } = useContext(UserContext);
-  const [foundUser, setFoundUser] = useState(null);
+  const [user, setUser] = useState({});
+  const { currentUser, userInfos } = useContext(UserContext);
+  const modalRef = useRef(null);
 
-
-   useEffect(() => {
-    const getCategoriesMap = async () => {
-      const categoryMap = await getCategoriesAndDocumentsFromUser();
+  useEffect(() => {
+    if (
+      currentUser !== (undefined || null) &&
+      userInfos !== (undefined || null)
+    ) {
       const searchEmail = currentUser?.email;
-      const user = categoryMap.find((user) => user.email === searchEmail);
-      setFoundUser(user); 
-    };
-    getCategoriesMap();
-  }, []);
-  
- 
+      const realUser = userInfos.find((user) => user.email === searchEmail);
+      setUser(realUser);
+    }
+  }, [userInfos]);
 
-  //cart open
   const { setIsCartOpen, isCartOpen } = useContext(CartContext);
   const toggleIsCartOpen = () => {
     if (isCartOpen) {
@@ -38,8 +33,6 @@ const Navbar = () => {
     }
     return;
   };
-
-  const modalRef = useRef(null);
 
   useEffect(() => {
     const handleOutsideClick = (event) => {
@@ -55,10 +48,8 @@ const Navbar = () => {
     };
   }, []);
 
-
   const [modalUser, setModalUser] = useState(false);
   // if photoURL is not null, undefined or "undefined"
-  const isPhotoURLValid = (url) => url && url !== "undefined";
 
   const orderedCategoriesData = [
     categoriesData.find((item) => item.title === "Womens"),
@@ -90,9 +81,7 @@ const Navbar = () => {
           </Link>
           {orderedCategoriesData.map((item) => (
             <Link to={`shop/${item.title.toLowerCase()}`} key={item.id}>
-              <li onClick={toggleIsCartOpen}>
-                {item.title}
-              </li>
+              <li onClick={toggleIsCartOpen}>{item.title}</li>
             </Link>
           ))}
         </ul>
@@ -102,11 +91,7 @@ const Navbar = () => {
           {currentUser ? (
             <div className="user_image">
               <img
-                src={
-                  isPhotoURLValid(foundUser?.photoURL)
-                    ? (foundUser.photoURL)
-                    : ( currentUser?.photoURL ||defaultProfile)
-                }
+                src={user?.photoURL || defaultProfile}
                 alt="Profile_image"
                 className="profile_image"
                 onClick={() => {
@@ -117,9 +102,11 @@ const Navbar = () => {
                 className={modalUser ? "modal_image" : "hidden"}
                 ref={modalRef}>
                 <p className="modal_image_displayName">
-                  {foundUser?.displayName || currentUser?.displayName}
+                  {user?.displayName || "Loading..."}
                 </p>
-                <p className="modal_image_email">{currentUser?.email}</p>
+                <p className="modal_image_email">
+                  {user?.email || "Loading email..."}
+                </p>
                 <div className="modal_image_bars"></div>
 
                 <div className="modal_image_checkout">

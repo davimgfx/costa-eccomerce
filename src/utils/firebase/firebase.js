@@ -33,7 +33,7 @@ const firebaseConfig = {
   appId: "1:1067060858532:web:a1051c9d12c70788476031",
 };
 
-const app = initializeApp(firebaseConfig);
+initializeApp(firebaseConfig);
 
 const googleProvider = new GoogleAuthProvider();
 const githubProvider = new GithubAuthProvider();
@@ -96,7 +96,6 @@ export const getCategoriesAndDocumentsFromUser = async () => {
     };
   });
 
-
   return userArray;
 };
 
@@ -105,8 +104,7 @@ export const createUserDocumentFromAuth = async (
   additionalInformation = {}
 ) => {
   if (!userAuth) return;
-  //console.log(userAuth)
-  //console.log(userAuth.uid)
+ 
   const userDocRef = doc(db, "users", userAuth.uid);
 
   const userSnapshot = await getDoc(userDocRef);
