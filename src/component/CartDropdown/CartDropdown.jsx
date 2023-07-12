@@ -10,7 +10,6 @@ const CartDropdown = () => {
   const itemsSubtotal =  cartItems.map((item) => item.quantity * item.price)
   .reduce((acc, item) => acc + item, 0);
 
-
   return (
     <div className="dropdown-div">
       <div className="dropdown-div-title">

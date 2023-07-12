@@ -10,7 +10,7 @@ const CartIcon = () => {
   return (
     <div className="cart-container" onClick={toggleIsCartOpen}>
       <i className="fa-solid fa-cart-shopping"></i>
-      { cartCount> 0 && (
+      { cartCount > 0 && (
         <span className='cart-container-items'>
           {cartCount >= 99 ? '99+' : cartCount}
         </span>
