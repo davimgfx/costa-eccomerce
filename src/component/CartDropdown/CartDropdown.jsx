@@ -14,7 +14,7 @@ const CartDropdown = () => {
     <div className="dropdown-div">
       <div className="dropdown-div-title">
         <h2>Your Shopping Cart ({cartCount})</h2>
-        <i className="fa-solid fa-x" onClick={toggleIsCartOpen}></i>
+        <i className="fa-solid fa-x dropdown-div-title-close" onClick={toggleIsCartOpen}></i>
       </div>
       {cartCount === 0 ? (
         <div className="dropdown-div-cart-empty">

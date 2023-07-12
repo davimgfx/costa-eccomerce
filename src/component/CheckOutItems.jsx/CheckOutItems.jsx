@@ -8,7 +8,7 @@ const CheckOutItems = () => {
     .map((item) => item.quantity * item.price)
     .reduce((acc, item) => acc + item, 0);
   const navigate = useNavigate();
-  console.log(cartItems)
+
   return (
     <>
       {cartItems.map((item) => (
