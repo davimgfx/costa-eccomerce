@@ -7,7 +7,7 @@
 Welcome to Costa Ecommerce, a minimalist online store. Our website showcases a modern and intuitive design, ensuring a seamless shopping experience that places the spotlight on our top-quality products. At Costa Ecommerce, we offer a wide range of items including hats, jackets, sneakers, and much more. Whether you're looking for stylish headwear, trendy outerwear, or comfortable footwear, we have you covered. Our carefully curated selection guarantees both fashion-forward designs and exceptional quality.
 <br />
 <br />
-👉 Live Demo: in working... 💻😎
+👉 Live Demo:  https://costa-eccomerce.vercel.app
 
 ### Build with:
 
