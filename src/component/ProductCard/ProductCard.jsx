@@ -17,8 +17,7 @@ const addProductToCart = () => addItemToCart(product)
            <h2 className='product-card-text-h2'>{name}</h2>
            <p className='product-card-text-p'>$ {price}</p> 
         </div>
-        <div className='product-card-buttons-container'>
-            <button className='product-card-button btn'>Preview</button>
+        <div className='product-card-buttons-container'>  
             <button className='product-card-button btn' onClick={addProductToCart}>Add to Card</button>
         </div>
     </div>

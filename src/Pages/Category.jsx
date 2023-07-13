@@ -22,6 +22,7 @@ const Category = () => {
             ))}
         </div>
       </div>
+      
     </>
   );
 };
