@@ -7,7 +7,8 @@ import { UserProvider } from "./context/UserProvider";
 import { CategoriesProvider } from "./context/Categories";
 import { CartProvider } from "./context/Cart";
 import { ErrorPage, Home, SignIn, SignUp, Shop, CheckOut, Category } from "./Pages";
-
+import { store } from "./store/store";
+import { Provider } from "react-redux";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -45,19 +46,16 @@ const router = createBrowserRouter([
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
 
-    <UserProvider>
-
-      <CategoriesProvider>
-
-        <CartProvider>
-
-          <RouterProvider router={router} />
-          
-        </CartProvider>
-
-      </CategoriesProvider>
-
-    </UserProvider>
+    <Provider store={store}>
+      <UserProvider>
+        <CategoriesProvider>
+          <CartProvider>
+            <RouterProvider router={router} />
+      
+          </CartProvider>
+        </CategoriesProvider>
+      </UserProvider>
+    </Provider>
 
   </React.StrictMode>
 );
