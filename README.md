@@ -49,5 +49,5 @@ Welcome to Costa Ecommerce, a minimalist online store. Our website showcases a m
 ![Cart_Empty](https://github.com/davimgfx/costa-eccomerce/assets/118557337/22de2723-beed-4ae5-9bfd-a022b22080c6)
 
 ## Credits
-A create new features but the basic project is from ![Complete React Developer in 2023 (w/ Redux, Hooks, GraphQL) - Udemy](https://www.udemy.com/course/complete-react-developer-zero-to-mastery/)
+A create new features but the basic project is from [Complete React Developer in 2023 w/ Redux, Hooks, GraphQL](https://www.udemy.com/course/complete-react-developer-zero-to-mastery/)
 
